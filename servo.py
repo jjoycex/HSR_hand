@@ -2,7 +2,7 @@ import time
 from adafruit_servokit import ServoKit
 
 # Initialize the ServoKit library with 16 channels.
-kit = ServoKit(channels=16)
+kit = ServoKit(channels=16, address=0x42)
 
 # Select the servo on channel 0.
 servo = kit.servo[0]
