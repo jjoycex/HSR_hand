@@ -4,16 +4,40 @@ from adafruit_servokit import ServoKit
 # Initialize the ServoKit library with 16 channels.
 kit = ServoKit(channels=16, address=0x42)
 
-# Select the servo on channel 0.
-servo = kit.servo[0]
+# Select the servos on channels 0 and 1.
+servo1 = kit.servo[0]
+servo2 = kit.servo[1]
 
-# Turn the servo to 180 degrees.
-servo.angle = 180
-print("Servo turned to 180 degrees.")
+# Set initial positions
+servo1.angle = 180
+servo2.angle = 85
+time.sleep(1)
 
-# Wait for 3 seconds.
-time.sleep(3)
+# New sequence
+print("Step 1: Servo 1 to 180")
+servo1.angle = 0
+time.sleep(1)
 
-# Turn the servo to 0 degrees.
-servo.angle = 0
-print("Servo returned to 0 degrees.")
+print("Step 2: Servo 2 to 0")
+servo2.angle = 40
+time.sleep(1)
+
+print("Step 3: Servo 1 to 0")
+servo1.angle = 180
+time.sleep(1)
+
+print("Step 4: Servo 2 to 90")
+servo2.angle = 110
+time.sleep(1)
+
+print("Step 5: Servo 1 to 180")
+servo1.angle = 0
+time.sleep(1)
+
+print("Step 6: Servo 1 to 0")
+servo1.angle = 180
+time.sleep(1)
+
+print("Step 7: Servo 2 to 0")
+servo2.angle = 85
+time.sleep(1)
