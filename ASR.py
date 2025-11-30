@@ -2,7 +2,7 @@ import pyaudio
 import wave
 import whisper
 
-def record_audio_to_file(filename="output.wav", record_seconds=5):
+def record_audio_to_file(filename="output.wav", record_seconds=10):
     """Records audio from the microphone for a specified duration and saves it to a file."""
     CHUNK = 1024
     FORMAT = pyaudio.paInt16
@@ -17,7 +17,7 @@ def record_audio_to_file(filename="output.wav", record_seconds=5):
                     input=True,
                     frames_per_buffer=CHUNK)
 
-    print(f"* recording for {record_seconds} seconds")
+    print(f"* recording for {record_seconds} seconds...")
 
     frames = []
 
