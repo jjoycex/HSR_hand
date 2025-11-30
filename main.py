@@ -1,8 +1,10 @@
 """ The main app for the robot hand """
 import time
-import ASR
+from asr import ASR
 import llm
 import servo
+
+asr = ASR()
 
 def main():
     """
@@ -13,10 +15,10 @@ def main():
     time.sleep(2)
 
     # Record audio
-    ASR.record_audio_to_file(audio_filename, 10)
+    asr.record_audio_to_file(audio_filename, 10)
 
     # Transcribe audio
-    transcribed_text = ASR.transcribe_audio_with_whisper(audio_filename)
+    transcribed_text = asr.transcribe_audio_with_whisper(audio_filename)
     print(f"Transcribed text: {transcribed_text}")
 
     response = ""

@@ -6,7 +6,7 @@ def query_ollama(prompt="Why is the sky blue?"):
     """
     try:
         response = ollama.chat(
-            model='my-gemma',
+            model='gemma3:1b', #gemma3:1b,gemma3:4b,phi4-mini,llama3.2:3b,qwen3:4b,my-gemma
             messages=[
                 {
                     'role': 'user',
